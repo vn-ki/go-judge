@@ -1,5 +1,5 @@
 # go-judge
-
+[![GoDoc](https://godoc.org/github.com/vn-ki/go-judge?status.svg)](https://godoc.org/github.com/vn-ki/go-judge)
 
 ```go
 package main
@@ -25,9 +25,12 @@ func main() {
 
 ```
 
+See [documentation](https://godoc.org/github.com/vn-ki/go-judge/runner#Runner) for more info on judge (Runner)
+
 ### TODO
 
 - Support more languages
 - Check output
 - Write tests
 - Add support for compiler flags
+- Rename `Runner` to `Judge`
