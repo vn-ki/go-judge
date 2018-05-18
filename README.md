@@ -10,9 +10,9 @@ import (
 )
 
 func main() {
-  runner := judge.GetJudge("cpp")
-  runner.AddFile("a.cpp")
-  runner.AddInputFile("input1.txt")
+  judge := judge.GetJudge("cpp")
+  judge.AddFile("a.cpp")
+  judge.AddInputFile("input1.txt")
   
   out, err := runner.Output()
   
