@@ -6,11 +6,11 @@ package main
 
 import (
   "fmt"
-  judge "github.com/vn-ki/go-judge"
+  gojudge "github.com/vn-ki/go-judge"
 )
 
 func main() {
-  judge := judge.GetJudge("cpp")
+  judge := gojudge.GetJudge("cpp")
   judge.AddFile("a.cpp")
   judge.AddInputFile("input1.txt")
   
