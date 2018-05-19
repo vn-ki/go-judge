@@ -1,17 +1,25 @@
 package judge
 
+import (
+	"errors"
+)
+
 /*
 GetJudge returns a runner for the language
 Available languages and usage
 	C++: GetJudge("cpp")
 */
-func GetJudge(s string) Judge {
+func GetJudge(s string) (Judge, error) {
 	runners := map[string]func() Judge{
 		"cpp":     GetCPPRunner,
 		"python3": GetPython3Runner,
 	}
 
-	return runners[s]() // TODO: ERROR handling
+	judge, ok := runners[s]
+	if !ok {
+		return Judge{}, errors.New("Judge not found")
+	}
+	return judge(), nil // TODO: ERROR handling
 }
 
 // Judge can compile and run a program
