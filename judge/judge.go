@@ -13,6 +13,7 @@ func GetJudge(s string) (Judge, error) {
 	runners := map[string]func() Judge{
 		"cpp":     GetCPPRunner,
 		"python3": GetPython3Runner,
+		"python2": GetPython2Runner,
 	}
 
 	judge, ok := runners[s]
