@@ -1,5 +1,8 @@
 # go-judge
 [![GoDoc](https://godoc.org/github.com/vn-ki/go-judge?status.svg)](https://godoc.org/github.com/vn-ki/go-judge/judge)
+[![Build Status](https://travis-ci.com/vn-ki/go-judge.svg?branch=master)](https://travis-ci.com/vn-ki/go-judge)
+[![codecov](https://codecov.io/gh/vn-ki/go-judge/branch/master/graph/badge.svg)](https://codecov.io/gh/vn-ki/go-judge)
+
 ```go
 package main
 
