@@ -12,7 +12,7 @@ import (
 func (judge *Judge) Compile() error {
 	judge.compiledName = strconv.FormatInt(time.Now().Unix(), 10)
 
-	args := append(judge.compileArgs, judge.file, "-o", judge.compiledName)
+	args := append(judge.compileArgs, "-o", judge.compiledName)
 
 	cmd := exec.Command(judge.compileCmd, args...)
 	_, err := cmd.Output()
