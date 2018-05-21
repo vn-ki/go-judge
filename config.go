@@ -20,5 +20,8 @@ func addConfig(judge Judge, config Config) Judge {
 
 	// judge.AddExpectedOutput() // TODO Once we add checking of output
 
+	judge.compileArgs = append(judge.compileArgs, config.CompileArgs...)
+	judge.runArgs = append(judge.runArgs, config.RunArgs...)
+
 	return judge
 }
