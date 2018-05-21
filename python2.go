@@ -1,13 +1,13 @@
 package judge
 
 /*
-GetPython3Runner returns a Runner with python configuration
+GetPython2Judge returns a Runner with python configuration
 */
-func GetPython3Runner() Judge {
+func GetPython2Judge() Judge {
 	return Judge{
 		compileCmd:       "",
 		compileArgs:      []string{},
-		runCmd:           "python3",
+		runCmd:           "python2",
 		runArgs:          []string{"{source_file}"},
 		compileBeforeRun: false,
 		extension:        ".py",

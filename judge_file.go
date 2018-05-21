@@ -9,8 +9,8 @@ func checkExtension(fileName string, extension string) bool {
 	return strings.HasSuffix(fileName, extension)
 }
 
-// AddFile adds a file to the Judge which can then be (compiled and) run.
-func (judge *Judge) AddFile(file string) error {
+// AddSourceFile adds a file to the Judge which can then be (compiled and) run.
+func (judge *Judge) AddSourceFile(file string) error {
 
 	if checkExtension(file, judge.extension) {
 		judge.file = file
