@@ -1,5 +1,5 @@
 # go-judge
-[![GoDoc](https://godoc.org/github.com/vn-ki/go-judge?status.svg)](https://godoc.org/github.com/vn-ki/go-judge/judge)
+[![GoDoc](https://godoc.org/github.com/vn-ki/go-judge?status.svg)](https://godoc.org/github.com/vn-ki/go-judge)
 [![Build Status](https://travis-ci.com/vn-ki/go-judge.svg?branch=master)](https://travis-ci.com/vn-ki/go-judge)
 [![codecov](https://codecov.io/gh/vn-ki/go-judge/branch/master/graph/badge.svg)](https://codecov.io/gh/vn-ki/go-judge)
 
@@ -12,8 +12,8 @@ import (
 )
 
 func main() {
-  judge := gojudge.GetJudge("cpp")
-  judge.AddFile("a.cpp")
+  judge := gojudge.GetCPPJudge(gojudge.Config{})
+  judge.AddSourceFile("a.cpp")
   judge.AddInputFile("input1.txt")
   
   out, err := judge.Output()
@@ -27,7 +27,21 @@ func main() {
 
 ```
 
-See [documentation](https://godoc.org/github.com/vn-ki/go-judge/judge#Judge) for more info on `Judge`.
+You can remove the use of `AddSourceFile` and `AddInputFile` by using [`Config`](https://godoc.org/github.com/vn-ki/go-judge#Config).
+
+```go
+judge := gojudge.GetCPPJudge(gojudge.Config{
+  SourceFile: "a.cpp",
+  InputFiles: []string{"input1.txt"},
+})
+```
+
+See [documentation](https://godoc.org/github.com/vn-ki/go-judge#Judge) for more info on `Judge`.
+
+### Supported Languages
+- C++
+- Python 3
+- Python 2
 
 ## How to add more languages
 
@@ -39,20 +53,20 @@ package judge
 /*
 GetLanguageRunner returns a Runner with Language configuration
 */
-func GetLanguageRunner() Judge {
-	return Judge{
-		compileCmd:       "LanguageCompiler",
-		compileArgs:      []string{"--compile-lang", "{source_file}"},
-		runCmd:           "./{compiled_program}",
-		runArgs:          []string{},
-		compileBeforeRun: true,
-		extension:        ".lang",
-	}
+func GetLanguageRunner(config Config) Judge {
+	return addConfig(
+    Judge{
+      compileCmd:       "LanguageCompiler",
+      compileArgs:      []string{"--compile-lang", "{source_file}"},
+      runCmd:           "./{compiled_program}",
+      runArgs:          []string{},
+      compileBeforeRun: true,
+      extension:        ".lang",
+	  }, config)
 }
 
 ```
 
-- Add an entry to the `map` in `go-judge/judge/judge.go`.
 - Profit!!
 
 ### TODO
