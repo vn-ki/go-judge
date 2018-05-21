@@ -1,7 +1,9 @@
 package judge
 
 import (
+	"fmt"
 	"io/ioutil"
+	"os"
 	"os/exec"
 	"strconv"
 	"strings"
@@ -12,7 +14,13 @@ import (
 func (judge *Judge) Compile() error {
 	judge.compiledName = strconv.FormatInt(time.Now().Unix(), 10)
 
-	args := append(judge.compileArgs, "-o", judge.compiledName)
+	// XXX This is dangerous and should not be used on a webserver
+	// TODO: Run the program in a sandbox
+	_ = os.Mkdir(".compiled_bin", 0777)
+
+	// FIXME: This is possibly linux specific. Fix it
+	args := append(judge.compileArgs, "-o", ".compiled_bin/"+judge.compiledName)
+	fmt.Println(args)
 
 	cmd := exec.Command(judge.compileCmd, args...)
 	_, err := cmd.Output()

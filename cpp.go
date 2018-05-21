@@ -8,7 +8,7 @@ func GetCPPJudge(config Config) Judge {
 		Judge{
 			compileCmd:       "g++",
 			compileArgs:      []string{"{source_file}"},
-			runCmd:           "./{compiled_program}",
+			runCmd:           ".compiled_bin/{compiled_program}", // TODO: Don't hardcode compiled folder
 			runArgs:          []string{},
 			compileBeforeRun: true,
 			extension:        ".cpp",

@@ -16,6 +16,4 @@
 
 # Test files
 main.go
-*.cpp
-*.txt
-*.py
+.compiled_bin
