@@ -21,5 +21,4 @@ func addConfig(judge Judge, config Config) Judge {
 	// judge.AddExpectedOutput() // TODO Once we add checking of output
 
 	return judge
-
 }

@@ -56,13 +56,13 @@ func TestJudge_AddSourceFile(t *testing.T) {
 	}{
 		{
 			name:    "Test AddSourceFile C++",
-			judge:   GetCPPJudge(),
+			judge:   GetCPPJudge(Config{}),
 			args:    args{file: "ab.cpp"},
 			wantErr: false,
 		},
 		{
 			name:    "Test AddSourceFile C++ - error",
-			judge:   GetCPPJudge(),
+			judge:   GetCPPJudge(Config{}),
 			args:    args{file: "ab.py"},
 			wantErr: true,
 		},
@@ -89,13 +89,13 @@ func TestJudge_AddInputFile(t *testing.T) {
 	}{
 		{
 			name:    "Test AddInputFile C++",
-			judge:   GetCPPJudge(),
+			judge:   GetCPPJudge(Config{}),
 			args:    args{file: "ab.txt"},
 			wantErr: false,
 		},
 		{
 			name:    "Test AddInputFile C++ - error",
-			judge:   GetCPPJudge(),
+			judge:   GetCPPJudge(Config{}),
 			args:    args{file: "ab.py"},
 			wantErr: true,
 		},
