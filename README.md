@@ -3,6 +3,14 @@
 [![Build Status](https://travis-ci.com/vn-ki/go-judge.svg?branch=master)](https://travis-ci.com/vn-ki/go-judge)
 [![codecov](https://codecov.io/gh/vn-ki/go-judge/branch/master/graph/badge.svg)](https://codecov.io/gh/vn-ki/go-judge)
 
+A go package which (compiles and) executes a program and checks it with given of inputs. This can be used to build an online judge (or a web IDE).
+
+### Supported Languages
+- C++
+- Python 3
+- Python 2
+
+
 ```go
 package main
 
@@ -38,10 +46,6 @@ judge := gojudge.GetCPPJudge(gojudge.Config{
 
 See [documentation](https://godoc.org/github.com/vn-ki/go-judge#Judge) for more info on `Judge`.
 
-### Supported Languages
-- C++
-- Python 3
-- Python 2
 
 ## How to add more languages
 
